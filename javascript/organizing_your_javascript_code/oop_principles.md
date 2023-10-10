@@ -22,7 +22,7 @@ As you craft your objects, one of the most important things to remember is the _
 
 Here's a really common example. Most of our code has functions to update and write things to the DOM in addition to our application logic. It's a _really_ good idea to separate your DOM stuff from the application logic.
 
-So instead of this:
+Here we have a function that should check if a game over condition has been met.  There are two issues with this:
 
 ~~~javascript
 function isGameOver() {
@@ -38,7 +38,7 @@ function isGameOver() {
 }
 ~~~
 
-You should extract all the DOM manipulation into its own module and use it like so:
+The first issue is that the function (and the module it's in) should not directly be the one to manipulate the DOM. You should extract all the DOM manipulation into its own module and use it like so:
 
 ~~~javascript
 function isGameOver() {
@@ -51,7 +51,7 @@ function isGameOver() {
 }
 ~~~
 
-In fact - the function `isGameOver` shouldn't be calling the DOM function anyway. That should go elsewhere (directly in the game-loop).
+The second issue remaining is that the `isGameOver` function should only be responsible for checking if the `gameOver` condition is met. Based on `isGameOver` return value, the function that handles the game loop should be responsible for deciding whether to call `DOMStuff.gameOver(this.winner)` or not.
 
 Another way to think about the Single Responsibility Principle is that a given method/class/component should have a single reason to change. Otherwise, if an object is trying to have multiple responsibilities, changing one aspect might affect another. 
 
@@ -88,8 +88,6 @@ This section contains questions for you to check your understanding of this less
 This section contains helpful links to other content. It isn't required, so consider it supplemental.
 
 - The best book we've ever read on the subject of loose coupling is [Practical Object-Oriented Design In Ruby](http://www.poodr.com/). Unfortunately, it is not free... and not JavaScript. We feel confident in recommending it anyway. If you don't know Ruby, it is a clear enough language that you don't really need to learn it to follow the examples and the content of the book is sincerely fantastic. Alternatively, [99 Bottles of OOP](https://sandimetz.com/products) is written in both JavaScript and Ruby. It is written by the same author and may be a better option if you are brand new to OOP (it is not free either).
-
-- A nice summary of [OOP's most common principles using JavaScript](https://medium.com/better-programming/object-oriented-programming-in-javascript-b3bda28d3e81)
 
 - [Building a house from the inside out](https://www.ayweb.dev/blog/building-a-house-from-the-inside-out) will walk you through the process of separating your core logic and DOM logic.
 

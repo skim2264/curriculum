@@ -191,7 +191,7 @@ In general, you can't chain more than one type selector since an element can’t
 
 Combinators allow us to combine multiple selectors differently than either grouping or chaining them, as they show a relationship between the selectors. There are four types of combinators in total, but for right now we're going to only show you the **descendant combinator**, which is represented in CSS by a single space between selectors. <span id="descendant-combinator-description">A descendant combinator will only cause elements that match the last selector to be selected if they also have an ancestor (parent, grandparent, etc) that matches the previous selector.</span>
 
-So something like `.ancestor .child` would select an element with the class `child` if it has an ancestor with the class `ancestor`. Another way to think of it is `child` will only be selected if it is nested inside of `ancestor`, no matter how deep. Take a quick look at the example below and see if you can tell which elements would be selected based on the CSS rule provided:
+So something like `.ancestor .child` would select an element with the class `child` if it has an ancestor with the class `ancestor`. Another way to think of it is that `child` will only be selected if it is nested inside `ancestor`, regardless of how deep that nesting is. Take a quick look at the example below and see if you can tell which elements would be selected based on the CSS rule provided:
 
 ~~~html
 <!-- index.html -->
@@ -366,8 +366,14 @@ If you need to add a _unique_ style for a _single_ element, this method can work
 
 <div class="lesson-content__panel" markdown="1">
 
-1.  Go to our [CSS exercises repository](https://github.com/TheOdinProject/css-exercises), read the README, and only do the exercises in the `foundations` directory in the order they're listed, starting with `01-css-methods` and ending with `05-descendant-combinator`.
+1.  Go to our [CSS exercises repository](https://github.com/TheOdinProject/css-exercises) and navigate to the `foundations` directory. Review each README file prior to completing the following exercises in order:
+    - `01-css-methods`
+    - `02-class-id-selectors`
+    - `03-group-selectors`
+    - `04-chain-selectors`
+    - `05-descendant-combinator`
 
+    Note: Solutions for these exercises can be found in the `solution` folder of each exercise.
 </div>
 
 ### Knowledge check
